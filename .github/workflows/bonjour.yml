@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update && sudo apt-get install cowsay
-      - run: cat README.md | cowsay -f tux 
+      - run: cat README.md | cowsay -f turkey 
