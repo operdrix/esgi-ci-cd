@@ -14,4 +14,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm --clean install
-      - run: npm run lint && npm run start
+      - run: |
+          npm run lint
+          npm run start
