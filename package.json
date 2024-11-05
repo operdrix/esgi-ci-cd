@@ -1,0 +1,21 @@
+{
+  "name": "sayhello",
+  "version": "1.0.0",
+  "description": "A web application which says hello",
+  "main": "index.js",
+  "scripts": {
+      "lint": "jshint index.js",
+      "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+      "node": "23"
+  },
+  "devDependencies": {
+      "jshint": "^2.13.6"
+  },
+  "jshintConfig": {
+      "esversion": 6
+  }
+}
