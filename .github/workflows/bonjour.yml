@@ -4,15 +4,12 @@ on:
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: ['23.x']
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 23
       - run: npm --clean install
       - run: npm run lint
       - run: npm run start
