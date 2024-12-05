@@ -1,6 +1,7 @@
 name: Bonjour
 on:
   - push
+  - pull_request
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
@@ -8,5 +9,8 @@ jobs:
       IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4
+      - uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
       - run: docker image build --tag="${IMAGE_NAME}" ./
       - run: docker container run "${IMAGE_NAME}" npm run lint
