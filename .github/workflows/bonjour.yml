@@ -2,13 +2,11 @@ name: Bonjour
 on:
   - push
 jobs:
-  node_test:
+  dire_bonjour:
     runs-on: ubuntu-22.04
-    env: 
+    env:
       IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4
-      - run: docker image build --tag="${IMAGE_NAME}" .
-      - run: pwd
-      - run: ls -la
-      - run: docker container run --workdir="$(pwd)" --volume="$(pwd)/index.js:$(pwd)/index.js" "${IMAGE_NAME}" npm run lint
+      - run: docker image build --tag="${IMAGE_NAME}" ./
+      - run: docker container run "${IMAGE_NAME}" npm run lint
