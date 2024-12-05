@@ -4,10 +4,9 @@ on:
 jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
-    container:
-      image: ghcr.io/dduportal/esgi-gitpod
-      options: --user=root
+    env:
+      IMAGE_NAME: "mynode"
     steps:
       - uses: actions/checkout@v4
-      - run: npm clean-install
-      - run: npm run lint
+      - run: docker image build --tag="${IMAGE_NAME}" ./
+      - run: docker container run "${IMAGE_NAME}" npm run lint
